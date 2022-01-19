@@ -32,8 +32,14 @@ for (i=0; i < roiManager("Count"); i++){
 // Target directory
 dir = getDirectory("Select Output Directory");
 
+// Export ROIs
 roiManager("Select", ROIs);
 roiManager("Save", dir+"/"+image+".zip");
+
+// Remove ROIs from manager
+roiManager("Deselect");
+roiManager("Delete");
+
 
 // Close open image
 close();
