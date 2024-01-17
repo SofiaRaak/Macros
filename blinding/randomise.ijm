@@ -91,10 +91,14 @@ for(i=1; i<=nImages(); i++){
 
 //functions
 function shuffle(array){
-	shuffled = Array.copy(array);
-	for(i = array.length -1; i>=0; i--){
-		j = round((i + 1)*random);
-		shuffled[j] = array[i];
+	shuffled = newArray(array.length);
+	i = array.length-1;
+	while(array.length>0 && i > -1){
+		j = round(i*random);
+		shuffled[i] = array[j];
+		array = Array.deleteIndex(array, j);
+		i -= 1;
 	}
+	
 	return shuffled;
 }
